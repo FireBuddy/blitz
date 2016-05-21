@@ -86,9 +86,9 @@ namespace Deus_Blitzcrank_Machina
             Chat.Print("<font color=\"#ffbd33\">DEUS BLITZCRANK MACHINA</font> - Made by - Enelx");
         }
 
-         private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base Sender, GameObjectProcessSpellCastEventArgs args)
+        private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base Sender, GameObjectProcessSpellCastEventArgs args)
         {
-            if (Sender == null || Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Flee))
+            if (Sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.LastHit))
             {
                return;
             }
@@ -96,7 +96,7 @@ namespace Deus_Blitzcrank_Machina
             if (Sender.IsValidTarget(Q.Range) && Q.IsReady() && !Sender.IsAlly && !Sender.IsMe && !Sender.IsMinion && !Sender.IsMonster)
             {
                 {
-                    Q.Cast(Sender);
+                    Q.Cast();
                 }
             } 
         }
