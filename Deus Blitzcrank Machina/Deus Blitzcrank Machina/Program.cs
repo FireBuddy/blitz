@@ -110,7 +110,7 @@ namespace Deus_Blitzcrank_Machina
                return;
             }
 
-            if (Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(Q.Range) && Q.IsReady() && Sender.IsEnemy)
+            if (!Sender.IsDashing() && Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(Q.Range) && Q.IsReady() && Sender.IsEnemy)
             {
                 {
                     Q.Cast(Sender);
