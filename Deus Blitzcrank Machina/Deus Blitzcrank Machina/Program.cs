@@ -89,11 +89,15 @@ namespace Deus_Blitzcrank_Machina
 
         private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base Sender, GameObjectProcessSpellCastEventArgs args)
         {
+            var Sender = TargetSelector.SelectedTarget != null &&
+            TargetSelector.SelectedTarget.Distance(Player.Instance) < Q.Range
+            ? TargetSelector.SelectedTarget
+            : TargetSelector.GetTarget(Q.Range, DamageType.Physical);
             if (Sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.LastHit) || !TargetSelector.SelectedTarget == Sender)
             {
                return;
             }
-            var predq = Q.GetPrediction(Sender);
+
             if (Sender.IsValidTarget(Q.Range) && Q.IsReady() && !Sender.IsAlly && !Sender.IsMe && !Sender.IsMinion && !Sender.IsMonster)
             {
                 {
@@ -101,20 +105,7 @@ namespace Deus_Blitzcrank_Machina
                 }
             } 
         }
-        private static void Obj_AI_Base_OnSpell;(Obj_AI_Base Sender, GameObjectProcessSpellCastEventArgs args)
-        {
-            if (Sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.LastHit) || !TargetSelector.SelectedTarget == Sender)
-            {
-               return;
-            }
-            var predq = Q.GetPrediction(Sender);
-            if (Sender.IsValidTarget(Q.Range) && Q.IsReady() && !Sender.IsAlly && !Sender.IsMe && !Sender.IsMinion && !Sender.IsMonster)
-            {
-                {
-                    Q.Cast(Sender);
-                }
-            } 
-        }
+
         
         private static void OnUpdate(EventArgs args)
         {
