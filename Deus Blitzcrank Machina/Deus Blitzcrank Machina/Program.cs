@@ -137,7 +137,7 @@ namespace Deus_Blitzcrank_Machina
 
             if (combo == false) return;
 
-            if (!Sender.IsDashing() && Combofig["Combo_Q"].Cast<CheckBox>().CurrentValue && Q.IsReady() && QTarget != null)
+            if (!QTarget.IsDashing() && Combofig["Combo_Q"].Cast<CheckBox>().CurrentValue && Q.IsReady() && QTarget != null)
             {
                 Q.Cast(QTarget);
             }
