@@ -95,7 +95,7 @@ namespace Deus_Blitzcrank_Machina
                return;
             }
 
-            if (Sender.IsValidTarget(Q.Range) && Q.IsReady() && !Sender.IsAlly && !Sender.IsMe && !Sender.IsMinion && !Sender.IsMonster &&!Sender.IsBot)
+            if (Sender.IsValidTarget(Q.Range) && Q.IsReady() && !Sender.IsAlly && !Sender.IsMe && !Sender.IsMinion && !Sender.IsMonster)
             {
                 {
                     Q.Cast(Sender);
