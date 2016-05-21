@@ -81,10 +81,26 @@ namespace Deus_Blitzcrank_Machina
             Gapcloser.OnGapcloser += OnGapCloser;
             Orbwalker.OnPreAttack += OnPreAttack;
             Drawing.OnDraw += OnDraw;
+            Obj_AI_Base.OnBasicAttack += Obj_AI_Base_OnBasicAttack;
 
             Chat.Print("<font color=\"#ffbd33\">DEUS BLITZCRANK MACHINA</font> - Made by - Enelx");
         }
 
+         private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base Sender, GameObjectProcessSpellCastEventArgs args)
+        {
+            if (Sender == null || Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Flee))
+            {
+               return;
+            }
+            var predq = Q.GetPrediction(Sender);
+            if (Sender.IsValidTarget(Q.Range) && Q.IsReady() && !Sender.IsAlly && !Sender.IsMe && !Sender.IsMinion && !Sender.IsMonster)
+            {
+                {
+                    Q.Cast(Sender);
+                }
+            } 
+        }
+        
         private static void OnUpdate(EventArgs args)
         {
             if (Player.Instance.IsDead) return;
