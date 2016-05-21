@@ -82,13 +82,28 @@ namespace Deus_Blitzcrank_Machina
             Orbwalker.OnPreAttack += OnPreAttack;
             Drawing.OnDraw += OnDraw;
             Obj_AI_Base.OnBasicAttack += Obj_AI_Base_OnBasicAttack;
+            Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnSpell;
 
             Chat.Print("<font color=\"#ffbd33\">DEUS BLITZCRANK MACHINA</font> - Made by - Enelx");
         }
 
         private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base Sender, GameObjectProcessSpellCastEventArgs args)
         {
-            if (Sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.LastHit))
+            if (Sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.LastHit) || !TargetSelector.SelectedTarget == target)
+            {
+               return;
+            }
+            var predq = Q.GetPrediction(Sender);
+            if (Sender.IsValidTarget(Q.Range) && Q.IsReady() && !Sender.IsAlly && !Sender.IsMe && !Sender.IsMinion && !Sender.IsMonster)
+            {
+                {
+                    Q.Cast(Sender);
+                }
+            } 
+        }
+        private static void Obj_AI_Base_OnSpell;(Obj_AI_Base Sender, GameObjectProcessSpellCastEventArgs args)
+        {
+            if (Sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.LastHit) || !TargetSelector.SelectedTarget == target)
             {
                return;
             }
