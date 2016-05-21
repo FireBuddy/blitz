@@ -89,7 +89,7 @@ namespace Deus_Blitzcrank_Machina
 
         private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base Sender, GameObjectProcessSpellCastEventArgs args)
         {
-
+            TargetSelector.GetTarget();
             if (Sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.LastHit) || !TargetSelector.SelectedTarget == Sender)
             {
                return;
