@@ -98,7 +98,7 @@ namespace Deus_Blitzcrank_Machina
             if (!Sender.IsDashing() && Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(Q.Range) && Q.IsReady() && Sender.IsEnemy)
             {
                 {
-                    Q.Cast(Sender);
+                    Q.Cast(Sender.ServerPosition);
                 }
             } 
         }
@@ -113,7 +113,7 @@ namespace Deus_Blitzcrank_Machina
             if (!Sender.IsDashing() && Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(Q.Range) && Q.IsReady() && Sender.IsEnemy)
             {
                 {
-                    Q.Cast(Sender);
+                    Q.Cast(Sender.ServerPosition);
                 }
             } 
         }
