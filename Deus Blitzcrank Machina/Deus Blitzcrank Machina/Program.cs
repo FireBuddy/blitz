@@ -95,7 +95,7 @@ namespace Deus_Blitzcrank_Machina
                return;
             }
 
-            if (!Sender.IsDashing() && Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(Q.Range) && Q.IsReady() && Sender.IsEnemy)
+            if (collision == 0 minion && !Sender.IsDashing() && Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(Q.Range) && Q.IsReady() && Sender.IsEnemy)
             {
                 {
                     Q.Cast(Sender.ServerPosition);
