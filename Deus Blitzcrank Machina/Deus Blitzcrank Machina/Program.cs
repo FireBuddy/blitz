@@ -29,7 +29,7 @@ namespace Deus_Blitzcrank_Machina
         {
             if (Player.Instance.ChampionName != ChampName) return;
 
-            Q = new Spell.Skillshot(SpellSlot.Q, (int)1050f, SkillShotType.Linear, (int)0.25f, (int)1800f, (int)70f);
+            Q = new Spell.Skillshot(SpellSlot.Q, (int)1075f, SkillShotType.Linear, (int)0.25f, (int)1800f, (int)70f);
             W = new Spell.Active(SpellSlot.W, (int)700f);
             E = new Spell.Active(SpellSlot.E, (int)150f);
             R = new Spell.Active(SpellSlot.R, (int)540f);
