@@ -110,8 +110,8 @@ namespace Deus_Blitzcrank_Machina
             {
                return;
             }
-            CurrentTarget2 = TargetSelector.GetTarget(Q.Range, DamageType.Magical);
-            if (Sender == CurrentTarget2 && !Sender.IsDashing() && Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(Q.Range) && Q.IsReady() && Sender.IsEnemy)
+            CurrentTarget = TargetSelector.GetTarget(Q.Range, DamageType.Magical);
+            if (Sender == CurrentTarget && !Sender.IsDashing() && Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(Q.Range) && Q.IsReady() && Sender.IsEnemy)
             {
                 {
                     Q.Cast(Sender);
