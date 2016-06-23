@@ -16,6 +16,7 @@ namespace Deus_Blitzcrank_Machina
     class Program
     {
         public const string ChampName = "Blitzcrank";
+        public static AIHeroClient CurrentTarget;
         public static Menu Config, Combofig, Miscfig, Drawfig, Skinfig;
         public static Spell.Skillshot Q;
         public static Spell.Active W, E, R;
@@ -94,8 +95,8 @@ namespace Deus_Blitzcrank_Machina
             {
                return;
             }
-
-            if (!Sender.IsDashing() && Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(Q.Range) && Q.IsReady() && Sender.IsEnemy)
+            CurrentTarget = TargetSelector.GetTarget(SpellManager.Q.Range, DamageType.Magical);
+            if (Sender == CurrentTarget && !Sender.IsDashing() && Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(Q.Range) && Q.IsReady() && Sender.IsEnemy)
             {
                 {
                     Q.Cast(Sender);
@@ -109,8 +110,8 @@ namespace Deus_Blitzcrank_Machina
             {
                return;
             }
-
-            if (!Sender.IsDashing() && Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(Q.Range) && Q.IsReady() && Sender.IsEnemy)
+            CurrentTarget2 = TargetSelector.GetTarget(SpellManager.Q.Range, DamageType.Magical);
+            if (Sender == CurrentTarget2 && !Sender.IsDashing() && Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(Q.Range) && Q.IsReady() && Sender.IsEnemy)
             {
                 {
                     Q.Cast(Sender);
