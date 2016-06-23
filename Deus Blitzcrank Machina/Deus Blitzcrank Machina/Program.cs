@@ -95,7 +95,7 @@ namespace Deus_Blitzcrank_Machina
             {
                return;
             }
-            CurrentTarget = TargetSelector.GetTarget(SpellManager.Q.Range, DamageType.Magical);
+            CurrentTarget = TargetSelector.GetTarget(Q.Range, DamageType.Magical);
             if (Sender == CurrentTarget && !Sender.IsDashing() && Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(Q.Range) && Q.IsReady() && Sender.IsEnemy)
             {
                 {
@@ -110,7 +110,7 @@ namespace Deus_Blitzcrank_Machina
             {
                return;
             }
-            CurrentTarget2 = TargetSelector.GetTarget(SpellManager.Q.Range, DamageType.Magical);
+            CurrentTarget2 = TargetSelector.GetTarget(Q.Range, DamageType.Magical);
             if (Sender == CurrentTarget2 && !Sender.IsDashing() && Sender.Type == GameObjectType.AIHeroClient && Sender.IsValidTarget(Q.Range) && Q.IsReady() && Sender.IsEnemy)
             {
                 {
